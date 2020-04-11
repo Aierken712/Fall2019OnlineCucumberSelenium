@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 public class BrowserUtilities {
+
     /**
      * Pause test for some time
      *
@@ -113,12 +114,11 @@ public class BrowserUtilities {
     }
 
     /**
-     * this method will switch webdriver from current window
+     * This method will switch webdriver from current window
      * to target window based on page title
-     *
      * @param title of the window to switch
      */
-    public static void switchWindow(String title){
+    public static void scitchWindow(String title){
         Set<String> windowHandles = Driver.getDriver().getWindowHandles();
         for(String window : windowHandles){
             Driver.getDriver().switchTo().window(window);
@@ -126,9 +126,5 @@ public class BrowserUtilities {
                 break;
             }
         }
-
     }
-
-
-
 }

@@ -61,6 +61,7 @@ public class CalendarEventsPage extends AbstractPageBase {
     }
 
     public void clickOnSaveAndClose() {
+        BrowserUtilities.wait(3);
         wait.until(ExpectedConditions.elementToBeClickable(saveAndClose)).click();
     }
 
@@ -70,56 +71,49 @@ public class CalendarEventsPage extends AbstractPageBase {
     }
 
     public String getGeneralInfoDescriptionText() {
-        BrowserUtilities.waitForPageToLoad(30);
+        BrowserUtilities.waitForPageToLoad(20);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//label[text()='Description']/following-sibling::div//div")));
         return generalInfoDescription.getText();
     }
 
-
-    public List<String> getColumnNames(){
+    //#############################################################
+    public List<String> getColumnNames() {
         BrowserUtilities.waitForPageToLoad(20);
         return BrowserUtilities.getTextFromWebElements(columnNames);
     }
 
     public String getStartTime() {
-
         BrowserUtilities.waitForPageToLoad(20);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[id^='time_selector_oro_calendar_event_form_start']")));
         wait.until(ExpectedConditions.visibilityOf(startTime));
-
         return startTime.getAttribute("value");
     }
 
     public String getEndTime() {
-
         BrowserUtilities.waitForPageToLoad(20);
         wait.until(ExpectedConditions.visibilityOf(endTime));
-
         return endTime.getAttribute("value");
     }
 
     public String getOwnerName() {
-
         BrowserUtilities.waitForPageToLoad(20);
         //wait for element to be present in DOM
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className("select2-chosen")));
         wait.until(ExpectedConditions.visibilityOf(owner));
-
         return owner.getText().trim();
     }
 
     public void clickToCreateCalendarEvent() {
-        BrowserUtilities.waitForPageToLoad(40);
-        wait.until(ExpectedConditions.elementToBeClickable(createCalendarEvent));
-        createCalendarEvent.click();
+        BrowserUtilities.waitForPageToLoad(20);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[title='Create Calendar event']")));
+        wait.until(ExpectedConditions.elementToBeClickable(createCalendarEvent)).click();
+        BrowserUtilities.waitForPageToLoad(20);
     }
 
     public String getStartDate() {
-
         BrowserUtilities.waitForPageToLoad(20);
         wait.until(ExpectedConditions.visibilityOf(startDate));
         BrowserUtilities.scrollTo(startDate);
-
         return startDate.getAttribute("value");
     }
-
 }
