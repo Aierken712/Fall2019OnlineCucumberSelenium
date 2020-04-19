@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         tags = "@create_calendar_event_2", // tags = "not @driver" --> run everything
         plugin = {
                 "html:target/default-report",
-                "json:target/cucumber.json"
+                "json:target/cucumber1.json"
         }
 
 )
