@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         dryRun = false,
         strict = false,
         // only run which scenario has this tags
-        tags = "@create_calendar_event_2", // tags = "not @driver" --> run everything
+        tags = "@create_car", // tags = "not @driver" --> run everything
         plugin = {
                 "html:target/default-report",
                 "json:target/cucumber1.json"
