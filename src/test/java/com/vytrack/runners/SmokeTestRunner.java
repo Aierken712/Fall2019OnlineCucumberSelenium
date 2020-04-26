@@ -10,16 +10,13 @@ import org.junit.runner.RunWith;
         features = "src\\test\\resources\\features",
         dryRun = false,
         strict = false,
-        // only run which scenario has this tags
-        tags = "@view_calendar_events", // tags = "not @driver" --> run everything
+        tags = "@smoke_test",
         plugin = {
-                "html:target/default-report",
+                "html:target/smoke_test_default-report",
                 "json:target/cucumber1.json",
                 "rerun:target/rerun.txt"
         }
 
 )
-public class CucumberRunner {
-
-
+public class SmokeTestRunner {
 }
